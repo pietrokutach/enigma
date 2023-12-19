@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class JogoEnigmas {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int fase = 1;
+
+        while (fase <= 3) {  // Altere o número de fases conforme necessário
+            exibirFase(fase, scanner);
+            fase++;
+        }
+
+        System.out.println("Parabéns! Você concluiu todas as fases.");
+        scanner.close();
+    }
+
+    private static void exibirFase(int fase, Scanner scanner) {
+        System.out.println("Fase " + fase);
+        System.out.print("Digite sua resposta: ");
+        String respostaUsuario = scanner.nextLine().toLowerCase();
+
+        if ("minhaculpa".equals(respostaUsuario)) {
+            System.out.println("Parabéns! Você avançou para a próxima fase.");
+        } else {
+            System.out.println("Tente novamente.");
+            exibirFase(fase, scanner);  // Repetir a mesma fase
+        }
+    }
+}
